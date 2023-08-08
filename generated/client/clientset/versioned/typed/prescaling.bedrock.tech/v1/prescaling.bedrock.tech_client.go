@@ -5,8 +5,8 @@ package v1
 import (
 	"net/http"
 
-	"github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/scheme"
-	v1 "github.com/BedrockStreaming/prescaling-exporter/pkg/apis/prescaling.bedrock.tech/v1"
+	"github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/scheme"
+	v1 "github.com/arthurgur/prescaling-exporter/pkg/apis/prescaling.bedrock.tech/v1"
 	rest "k8s.io/client-go/rest"
 )
 

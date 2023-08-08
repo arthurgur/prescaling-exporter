@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/BedrockStreaming/prescaling-exporter/cmd"
+	"github.com/arthurgur/prescaling-exporter/cmd"
 )
 
 func main() {

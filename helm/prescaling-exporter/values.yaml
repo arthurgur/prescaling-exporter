@@ -13,7 +13,7 @@ env:
   retentionDays: "10"
 
 image:
-  repository: bedrockstreaming/prescaling-exporter
+  repository: arthurgur/prescaling-exporter
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: ""

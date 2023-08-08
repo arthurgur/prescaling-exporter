@@ -2,7 +2,7 @@ apiVersion: skaffold/v2beta28
 kind: Config
 build:
   artifacts:
-    - image: bedrockstreaming/prescaling-exporter
+    - image: arthurgur/prescaling-exporter
       ko: {}
 deploy:
   helm:
@@ -12,6 +12,6 @@ deploy:
         namespace: prescaling-exporter
         createNamespace: true
         artifactOverrides:
-          image: bedrockstreaming/prescaling-exporter
+          image: arthurgur/prescaling-exporter
         imageStrategy:
           helm: {}

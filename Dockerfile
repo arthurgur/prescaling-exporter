@@ -4,7 +4,7 @@ ENV GO111MODULE=off
 
 RUN go get k8s.io/code-generator k8s.io/apimachinery
 
-ARG repo="${GOPATH}/src/github.com/bedrockstreaming/prescaling-exporter"
+ARG repo="${GOPATH}/src/github.com/arthurgur/prescaling-exporter"
 
 RUN mkdir -p $repo
 WORKDIR $repo

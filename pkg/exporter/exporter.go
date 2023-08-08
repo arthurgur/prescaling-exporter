@@ -4,15 +4,15 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	log "github.com/sirupsen/logrus"
 
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/prescaling"
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/utils"
+	"github.com/arthurgur/prescaling-exporter/pkg/prescaling"
+	"github.com/arthurgur/prescaling-exporter/pkg/utils"
 )
 
 type prescalingCollector struct {
-	prescaleMetrics *prometheus.Desc
-	minMetrics      *prometheus.Desc
-	multiplierMetrics      *prometheus.Desc
-	prescaling      prescaling.IPrescaling
+	prescaleMetrics   *prometheus.Desc
+	minMetrics        *prometheus.Desc
+	multiplierMetrics *prometheus.Desc
+	prescaling        prescaling.IPrescaling
 }
 
 func NewPrescalingCollector(p prescaling.IPrescaling) prometheus.Collector {

@@ -6,8 +6,8 @@ import (
 
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/config"
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/utils"
+	"github.com/arthurgur/prescaling-exporter/pkg/config"
+	"github.com/arthurgur/prescaling-exporter/pkg/utils"
 
 	log "github.com/sirupsen/logrus"
 )

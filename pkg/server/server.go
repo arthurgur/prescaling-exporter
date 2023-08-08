@@ -8,9 +8,9 @@ import (
 	log "github.com/sirupsen/logrus"
 	httpSwagger "github.com/swaggo/http-swagger"
 
-	_ "github.com/BedrockStreaming/prescaling-exporter/docs"
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/config"
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/handlers"
+	_ "github.com/arthurgur/prescaling-exporter/docs"
+	"github.com/arthurgur/prescaling-exporter/pkg/config"
+	"github.com/arthurgur/prescaling-exporter/pkg/handlers"
 )
 
 // @title        Prescaling API

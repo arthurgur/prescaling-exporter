@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"net/http"
 
-	prescalingv1 "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
+	prescalingv1 "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
 	discovery "k8s.io/client-go/discovery"
 	rest "k8s.io/client-go/rest"
 	flowcontrol "k8s.io/client-go/util/flowcontrol"

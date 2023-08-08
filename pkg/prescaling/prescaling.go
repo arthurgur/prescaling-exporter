@@ -1,8 +1,8 @@
 package prescaling
 
 import (
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/k8s"
-	"github.com/BedrockStreaming/prescaling-exporter/pkg/services"
+	"github.com/arthurgur/prescaling-exporter/pkg/k8s"
+	"github.com/arthurgur/prescaling-exporter/pkg/services"
 )
 
 type IPrescaling interface {

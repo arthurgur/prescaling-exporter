@@ -86,7 +86,7 @@ jobs:
       - name: Build and Push on Docker Hub  
         if: "steps.version_tag.outputs.tag != ''"
         env:
-          KO_DOCKER_REPO: bedrockstreaming/prescaling-exporter
+          KO_DOCKER_REPO: arthurgur/prescaling-exporter
         run: ko publish . --bare --tags latest,${{steps.version_tag.outputs.tag}}
 
   release-helm: 

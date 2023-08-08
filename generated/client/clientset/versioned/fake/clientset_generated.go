@@ -3,9 +3,9 @@
 package fake
 
 import (
-	clientset "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned"
-	prescalingv1 "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
-	fakeprescalingv1 "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1/fake"
+	clientset "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned"
+	prescalingv1 "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
+	fakeprescalingv1 "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1/fake"
 	"k8s.io/apimachinery/pkg/runtime"
 	"k8s.io/apimachinery/pkg/watch"
 	"k8s.io/client-go/discovery"

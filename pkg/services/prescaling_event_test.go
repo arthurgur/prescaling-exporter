@@ -9,10 +9,10 @@ import (
 	"k8s.io/utils/clock"
 	testclock "k8s.io/utils/clock/testing"
 
-	fakeclient "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/fake"
-	prescalingv1client "github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
-	"github.com/BedrockStreaming/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1/fake"
-	v1 "github.com/BedrockStreaming/prescaling-exporter/pkg/apis/prescaling.bedrock.tech/v1"
+	fakeclient "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/fake"
+	prescalingv1client "github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1"
+	"github.com/arthurgur/prescaling-exporter/generated/client/clientset/versioned/typed/prescaling.bedrock.tech/v1/fake"
+	v1 "github.com/arthurgur/prescaling-exporter/pkg/apis/prescaling.bedrock.tech/v1"
 )
 
 func TestNewEventService(t *testing.T) {

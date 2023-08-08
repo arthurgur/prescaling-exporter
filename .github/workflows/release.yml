@@ -53,7 +53,7 @@ jobs:
         with:
           commit_message: "ci: bump charts to ${{steps.version_tag.outputs.tag}}"
           branch: main
-          tagging_message: ${{steps.version_tag.outputs.tag}}
+#          tagging_message: ${{steps.version_tag.outputs.tag}}
 
       - name: Create release
         uses: shogo82148/actions-create-release@v1

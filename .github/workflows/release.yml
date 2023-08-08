@@ -36,47 +36,55 @@ jobs:
           if_true: ${{ github.ref }}
           if_false: ${{ steps.bumpr.outputs.next_version }}
 
-      - id: version_tag
-        run: echo "::set-output name=tag::$(echo ${{steps.tag.outputs.value}} | cut -c 2-)"
+      - name: Set version tag 
+        id: version_tag
+        run: echo "tag=$(echo ${{steps.tag.outputs.value}} | cut -d / -f3)" >> "$GITHUB_OUTPUT"
 
       # Update version in Chart.yaml
-      - if: steps.tag.outputs.value != ''
+      - name: Update Helm Chart Version
+        if: steps.version_tag.outputs.tag != ''
         run: |
           sed -i '/^version:/c\version: ${{steps.version_tag.outputs.tag}}' ./helm/prescaling-exporter/Chart.yaml
           sed -i '/^appVersion:/c\appVersion: "${{steps.version_tag.outputs.tag}}"' ./helm/prescaling-exporter/Chart.yaml 
-      - if: steps.tag.outputs.value != ''
+      
+      - name: Commit Helm Chart Version 
+        if: steps.version_tag.outputs.tag != ''
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "ci: bump charts to ${{steps.version_tag.outputs.tag}}"
-          ref: ${{ github.ref_name }}
+          branch: main
+          tagging_message: ${{steps.version_tag.outputs.tag}}
 
       - name: Create release
         uses: shogo82148/actions-create-release@v1
-        if: "steps.tag.outputs.value != ''"
+        if: "steps.version_tag.outputs.tag != ''"
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag_name: ${{ steps.tag.outputs.value }}
-          release_name: Release ${{ steps.tag.outputs.value }}
+          tag_name: ${{ steps.version_tag.outputs.tag }}
+          release_name: Release ${{ steps.version_tag.outputs.tag }}
           body: ${{ steps.bumpr.outputs.message }}
           draft: false
           prerelease: false
 
-      - uses: actions/setup-go@v4
-        if: "steps.tag.outputs.value != ''"
+      - name: setup GO
+        uses: actions/setup-go@v4
+        if: "steps.version_tag.outputs.tag != ''"
         with:
           go-version: '>=1.18.0'
 
       - name: Login to Docker Hub
         uses: docker/login-action@v2
-        if: "steps.tag.outputs.value != ''"
+        if: "steps.version_tag.outputs.tag != ''"
         with:
           username: ${{secrets.DOCKER_USERNAME}}
           password: ${{ secrets.DOCKER_AUTH_TOKEN }}
 
-      - uses: imjasonh/setup-ko@v0.6
+      - name: Setup KO
+        if: "steps.version_tag.outputs.tag != ''"
+        uses: imjasonh/setup-ko@v0.6
 
       - name: Build and Push on Docker Hub  
-        if: "steps.tag.outputs.value != ''"
+        if: "steps.version_tag.outputs.tag != ''"
         env:
           KO_DOCKER_REPO: bedrockstreaming/prescaling-exporter
         run: ko publish . --bare --tags latest,${{steps.version_tag.outputs.tag}}

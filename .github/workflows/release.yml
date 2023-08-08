@@ -48,6 +48,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "ci: bump charts to ${{steps.version_tag.outputs.tag}}"
+          ref: ${{ github.ref_name }}
 
       - name: Create release
         uses: shogo82148/actions-create-release@v1
